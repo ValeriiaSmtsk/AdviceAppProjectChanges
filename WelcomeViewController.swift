@@ -11,19 +11,33 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addVerticalGradientLayer(topColor: .lightYellow, bottomColor: .lightOrange)
     }
     
+ // MARK: - Navigation
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ // MARK: - Set background color
+extension UIView {
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [
+            topColor.cgColor,
+            bottomColor.cgColor
+        ]
+        layer.insertSublayer(gradientLayer, at: 0)
     }
-    */
+}
 
+ // MARK: - UIColor class variable
+extension UIColor {
+    class var lightOrange: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 139.0 / 255.0, blue: 40.0 / 255.0, alpha: 1)
+    }
+    
+    class var lightYellow: UIColor {
+        return UIColor(red: 241 / 255, green: 235 / 255, blue: 156 / 255, alpha: 1)
+    }
 }
